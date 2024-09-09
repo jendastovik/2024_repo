@@ -1,0 +1,42 @@
+# Quiz 73
+## Question
+![Question](/slides/73.png)
+
+## Paper Working
+![Working](/working/73.png)
+
+## Python code
+```python
+def check_error(msg):
+    index0 = 0
+    index1 = len(msg) / 3
+    index2 = len(msg) / 3 * 2
+
+    for i in range(len(msg)/3):
+        if msg[index0] != msg[index1] or msg[index0] != msg[index2] or msg[index1] != msg[index2]:
+            return True  
+        index0 += 1
+        index1 += 1
+        index2 += 1
+    return False
+
+def correct_error(msg):
+    index0 = 0
+    index1 = len(msg) / 3
+    index2 = len(msg) / 3 * 2
+    final = ""
+
+    for i in range(len(msg)/3):
+        if msg[index0] == msg[index1] or msg[index0] == msg[index2]:
+            final += msg[index0]
+        elif msg[index1] == msg[index2]:
+            final += msg[index1]
+        else:
+            raise ValueError("Error")
+        index0 += 1
+        index1 += 1
+        index2 += 1
+    return final
+```
+## Output
+![](/output/73.png)
